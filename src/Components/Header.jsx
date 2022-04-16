@@ -1,5 +1,9 @@
 import { styled } from '@mui/system';
 import React from 'react';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+import {colors} from "@mui/material";
+
 const StyledHeader = styled('header')`
   height: 106px;
   padding: 1rem;
@@ -83,10 +87,10 @@ export function Header ()    {
             </nav>
             <nav className="leftnav">
                 <div className="cart">
-                    <img src="asset\shopping_cart_512px.png" alt=""/>
+                   <PersonOutlineOutlinedIcon/>
                 </div>
                 <div className="user">
-                    <img src="asset\user_512px.png" alt=""/>
+                   <LocalMallOutlinedIcon style={{color:'white'}}/>
                 </div>
             </nav>
         </StyledHeader>

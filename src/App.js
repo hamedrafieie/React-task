@@ -5,11 +5,14 @@ import Banner from "./Components/banner";
 import React from "react";
 import Footer from "./Components/Footer";
 import BottomRow from "./Components/ButtomRow";
+import {Container} from "@mui/material";
 function App() {
   return (
     <div className="App">
-        <Header/>
-        <Banner/>
+     <Container maxWidth={"false"}>
+         <Header/>
+         <Banner/>
+     </Container>
        <HomePage/>
         <Footer/>
         <BottomRow/>

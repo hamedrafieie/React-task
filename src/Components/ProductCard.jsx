@@ -8,9 +8,25 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import {Box} from "@mui/material";
+import {useState} from "react";
 
 export default function PlanCard() {
     const [expanded, setExpanded] = React.useState(false);
+    const [cardtext, setCardtext] = React.useState("مدت دوره")
+    const [month , setMonth] = React.useState(1)
+    const handlePlus = () =>{
+        setMonth(month +1)
+        setCardtext(`${month} ماه`)
+    }
+    const handleMinus = () =>{
+        setMonth(month -1)
+        setCardtext(`${month} ماه`)
+        if (month <= 0){
+            setCardtext("مدت دوره")
+        }
+    }
+
 
     return (
         <Card onMouseLeave={() => setExpanded(!expanded)}
@@ -74,12 +90,15 @@ export default function PlanCard() {
                    انتخاب مدت دوره
                </Typography>
                <CardActions sx={{display:"flex", flexDirection:"row", justifyContent:"space-between" }} >
-                   <IconButton aria-label="add to favorites">
-                       <RemoveIcon />
-                   </IconButton>
-
-                   <IconButton aria-label="share">
+                   <IconButton
+                       onClick={handlePlus} >
                        <AddIcon/>
+                   </IconButton>
+                   <Box>
+                       <Typography>{cardtext}</Typography>
+                   </Box>
+                   <IconButton onClick={handleMinus} >
+                       <RemoveIcon />
                    </IconButton>
                </CardActions>
            </CardContent>
